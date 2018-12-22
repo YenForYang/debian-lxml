@@ -1,0 +1,106 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package lxml
+dpkg-buildpackage: info: source version 4.2.5-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Matthias Klose <doko@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build*-stamp build*-python* dbg-build*-python* prebuild-stamp
+rm -rf build dist __pycache__
+find -name '*.py[co]' | xargs rm -f
+rm -rf [23].[0-9]
+rm -f src/lxml/lxml-version.h
+dh_clean 
+FAKEROOTKEY=760526863 LD_LIBRARY_PATH=:/opt/intel/lib/intel64_lin:/opt/intel/tbb/lib/intel64/gcc4.7 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+touch prebuild-stamp
+python2.7 setup.py build
+Building lxml version 4.2.5.
+Building without Cython.
+Using build configuration of libxslt 1.1.32
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.7
+creating build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/doctestcompare.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/pyclasslookup.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/cssselect.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/usedoctest.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/__init__.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/ElementInclude.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/builder.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/_elementpath.py -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/sax.py -> build/lib.linux-x86_64-2.7/lxml
+creating build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/__init__.py -> build/lib.linux-x86_64-2.7/lxml/includes
+creating build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/defs.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/formfill.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/_diffcommand.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/_html5builder.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/soupparser.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/clean.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/_setmixin.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/usedoctest.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/__init__.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/builder.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/html5parser.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/ElementSoup.py -> build/lib.linux-x86_64-2.7/lxml/html
+copying src/lxml/html/diff.py -> build/lib.linux-x86_64-2.7/lxml/html
+creating build/lib.linux-x86_64-2.7/lxml/isoschematron
+copying src/lxml/isoschematron/__init__.py -> build/lib.linux-x86_64-2.7/lxml/isoschematron
+copying src/lxml/etree.h -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/etree_api.h -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/lxml.etree.h -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/lxml.etree_api.h -> build/lib.linux-x86_64-2.7/lxml
+copying src/lxml/includes/schematron.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/c14n.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/relaxng.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/xpath.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/dtdvalid.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/xmlparser.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/tree.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/xslt.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/uri.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/xmlschema.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/__init__.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/config.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/htmlparser.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/xmlerror.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/xinclude.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/etreepublic.pxd -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/lxml-version.h -> build/lib.linux-x86_64-2.7/lxml/includes
+copying src/lxml/includes/etree_defs.h -> build/lib.linux-x86_64-2.7/lxml/includes
+creating build/lib.linux-x86_64-2.7/lxml/isoschematron/resources
+creating build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/rng
+copying src/lxml/isoschematron/resources/rng/iso-schematron.rng -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/rng
+creating build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl
+copying src/lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl
+copying src/lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl
+creating build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+copying src/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_svrl_for_xslt1.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+copying src/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_message.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+copying src/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_skeleton_for_xslt1.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+copying src/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_abstract_expand.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+copying src/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_dsdl_include.xsl -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+copying src/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt -> build/lib.linux-x86_64-2.7/lxml/isoschematron/resources/xsl/iso-schematron-xslt1
+running build_ext
+building 'lxml.etree' extension
+creating build/temp.linux-x86_64-2.7
+creating build/temp.linux-x86_64-2.7/src
+creating build/temp.linux-x86_64-2.7/src/lxml
+ccache icc -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-AjKZhf/python2.7-2.7.15=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DCYTHON_CLINE_IN_TRACEBACK=0 -I/usr/include/libxml2 -Isrc -Isrc/lxml/includes -I/usr/include/python2.7 -c src/lxml/etree.c -o build/temp.linux-x86_64-2.7/src/lxml/etree.o -w
+Front end time                       8.36 (CPU)       8.00 (elapsed)
+Back end time                       15.56 (CPU)      16.00 (elapsed)
+Total compilation time              23.92 (CPU)      24.00 (elapsed)
+ccache icc -shared -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-AjKZhf/python2.7-2.7.15=. -fstack-protector-strong -Wformat -Werror=format-security build/temp.linux-x86_64-2.7/src/lxml/etree.o -lxslt -lexslt -lxml2 -lrt -lz -lm -o build/lib.linux-x86_64-2.7/lxml/etree.so
+icc: command line warning #10006: ignoring unknown option '-fdebug-prefix-map=/build/python2.7-AjKZhf/python2.7-2.7.15=.'
+icc: error #10106: Fatal error in /opt/intel/compilers_and_libraries_2019.1.144/linux/bin/intel64/mcpcom, terminated by kill signal
+icc: error #10014: problem during multi-file optimization compilation (code 1)
+error: command 'ccache' failed with exit status 1
+make: *** [debian/rules:28: build-python2.7] Error 1
+dpkg-buildpackage: error: debian/rules build subprocess returned exit status 2

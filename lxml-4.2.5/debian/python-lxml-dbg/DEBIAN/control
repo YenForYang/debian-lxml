@@ -1,0 +1,17 @@
+Package: python-lxml-dbg
+Source: lxml
+Version: 4.2.5-1
+Architecture: amd64
+Maintainer: Matthias Klose <doko@debian.org>
+Installed-Size: 70610
+Depends: python-lxml (= 4.2.5-1), python-dbg, libc6 (>= 2.14), libgcc1 (>= 1:3.0), libxml2 (>= 2.7.4), libxslt1.1 (>= 1.1.26)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Homepage: http://lxml.de/
+Description: pythonic binding for the libxml2 and libxslt libraries (debug extension)
+ lxml is a new Python binding for libxml2 and libxslt, completely
+ independent from existing Python bindings.
+ .
+ This package contains the extension built for the Python debug interpreter.
+Build-Ids: 29c955f4976ea80fa6eeefb093dd6ea48f77fabc 2be0be03d9a49143e4f4d3596bde4e7823930312 455f5c4fa99efe1f60c50b00dfaf1b2139c7db23 4833c1e05fc211c8ccebce223b87fbaa43e36759 8e4e770df1b893f30f7fbdacd1c23cf4593ff2fd d0f5c0abef13c3a788d3536a6764d8e95d640d69
